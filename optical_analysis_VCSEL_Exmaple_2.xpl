@@ -18,7 +18,6 @@
         <rectangle material="Al(0.73)GaAs" dr="10" dz="0.0795"/>
         <rectangle material="GaAs" dr="10" dz="0.0700"/>
       </stack>
-      <rectangle material="Al(0.73)GaAs" dr="10" dz="0.0318"/>
       <shelf>
         <rectangle material="AlAs" dr="4" dz="0.0160"/>
         <rectangle material="AlOx" dr="6" dz="0.0160"/>
@@ -50,6 +49,8 @@ import scipy.optimize
 
 profile = plask.StepProfile(GEO.main, default=0.)
 profile[GEO.gain_region] = 500.
+
+efm.inGain = profile.outGain
 
 def loss_on_gain(gain):
     profile[GEO.gain_region] = gain
